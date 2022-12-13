@@ -1,4 +1,6 @@
+import streamlit as st
 import random
+
 
 def generate_password(length, include_lowercase, include_uppercase, include_numbers, include_symbols):
   # Start with an empty password
@@ -27,8 +29,13 @@ def generate_password(length, include_lowercase, include_uppercase, include_numb
   # Return the generated password
   return password
 
-# Generate a password that is 10 characters long and includes lowercase letters, uppercase letters, and numbers
-password = generate_password(10, True, True, True, False)
+# Create a button to generate a new password
+button = st.button("Generate password")
 
-# Print the generated password
-print(password)
+# If the button is clicked, generate a new password
+if button:
+  # Generate a password that is 10 characters long and includes lowercase letters, uppercase letters, and numbers
+  password = generate_password(10, True, True, True, False)
+
+  # Show the generated password
+  st.text(password)
